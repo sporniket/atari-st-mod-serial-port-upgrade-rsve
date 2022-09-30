@@ -18,6 +18,17 @@ git remote set-url origin https://your.repository/full/path/your_project.git
 git remote rm origin
 ```
 
+* Replace this readme file by the template for a project readme, and edit to use your project name and repository url.
+
+```
+mv README-template.md README.md
+sed -i.bak \
+	-e 's/{HUMAN_READABLE_PROJECT_NAME}/My greatest project of all time/g' \
+	-e 's+{GITHUB_USER__REPOSITORY}+foo/bar+g' \
+	-e 's/{SPECIFIC TOOL}/something/g' \
+	README-template.md
+```
+
 ## Initialise a new Kicad project
 
 * Start Kicad
