@@ -5,9 +5,7 @@
 * clone this repository
 ```
 git clone --recurse-submodules https://github.com/sporniket/seed-kicad.git your_project
-cd your_project/kicad-symbols-generated
-make
-cd ..
+cd your_project
 ```
 * Change the remote `origin` to your repository
 ```
