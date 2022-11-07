@@ -101,6 +101,8 @@ seine Bezeichnung im Bestückungsplan gespiegelt geschrieben.
 
 ### Anschlüsse der Schaltung
 
+|||
+|---|---|
 |+5V   |an +5V im Computer|
 |GND   |an GND im Computer|
 |LED+  |Anode der Anzeige-LED|
@@ -115,6 +117,8 @@ Pin-Nummern beziehen sich auf den 48poligen MFP im DIL-Gehäuse. Wenn ein
 52poliger MFP im Quadpack-Gehäuse vorhanden ist, wie z.B. im TT, so gilt
 folgende Zuordnung der Pin-Nummern:
 
+|||
+|---|---|
 |48pol.  |52pol.|
 |Pin7    |Pin8|
 |Pin10   |Pin11|
