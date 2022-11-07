@@ -48,6 +48,7 @@ O-1020 Berlin
 
 ## Inhalt des Paketes
 
+|---|---|
 |RSVE_GAL.JED   |Jedec-Fusedatei für das GAL|
 |RSVE_GAL.TXT   |Logikgleichungen in Textform mit Kommentaren|
 |RSVE_DOC.TXT   |diese Dokumentation|
