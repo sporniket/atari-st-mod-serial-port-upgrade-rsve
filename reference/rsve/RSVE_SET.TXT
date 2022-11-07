@@ -1,0 +1,16 @@
+RSVE_SET.PRG legt den Cookie RSVE an. An diesem Cookie erkennen einige
+Programme, wie z.B. das Terminalprogramm Connect ab Version 1.80, das
+Vorhandensein der RSVE-Hardware und bieten direkt die Einstellung von
+38400, 57600 und 115200 Baud an.
+
+Der RSVE-Cookie wird nur angelegt, wenn bereits ein Cookie Jar vorhanden
+ist. Das sollte ab TOS1.06 immer der Fall sein.
+
+Die Definition des RSVE-Cookies lautet:
+Name: RSVE
+Wert: $00000000 oder ein Zeiger auf eine noch nicht spezifizierte
+Datenstruktur.
+
+RSVE_SET.PRG darf zusammen mit diesem Text frei kopiert werden.
+
+(C) SWB 1992

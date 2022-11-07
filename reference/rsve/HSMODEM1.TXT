@@ -1,0 +1,330 @@
+HSMODEM1.PRG
+============
+
+
+HSMODEM1 ist ein Software-Beschleuniger und Patch fr die serielle
+Schnittstelle Modem1 der Atari-Computer. Es beseitigt nicht nur den auch im
+TOS2.06/3.06 noch vorhandenen RTS/CTS-Handshakefehler, sondern erh”ht durch
+seine optimierten Routinen die m”gliche šbertragungsrate wesentlich.
+Auerdem wird der XBIOS-Iorec-Fehler des TOS2.05 beseitigt. Sp„testens wenn
+Fragen auftreten sollte man diesen Text komplett lesen und erst danach
+seiner Umwelt oder mir die verbliebenen Fragen stellen. Bei Updates und
+Zeitmangel zuerst einen Blick nach ganz hinten, Abschnitt "Versionen"!
+
+
+Copyright
+---------
+Ich gestatte die šbersetzung dieser Dokumentation in andere Sprachen. Der
+šbersetzer hat seine T„tigkeit entsprechend zu vermerken. Das deutsche
+Original mu weiterhin beigelegt sein. Die im Folgenden genannten
+Bedingungen gelten auch fr die šbersetzung.
+
+HSMODEM1 darf, aber immer nur zusammen mit diesem Text, zu nicht
+kommerziellen Zwecken frei kopiert werden. Die Verbreitung auf PD-Disketten
+zu blichen Preisen ist zul„ssig. Ein Beipack zu Programmen ist ohne meine
+Zustimmung nur zul„ssig, wenn diese PD oder Shareware mit einer maximalen
+Registrierungsgebhr von 100DM sind. Jede Verbreitung zusammen mit
+kommerziellen Programmen oder sonstige kommerzielle Verwertung,
+ausgeschlossen jedoch die Anwendung (Programm starten), ist nur mit meiner
+ausdrcklichen Genehmigung (m”glicherweise gegen Gebhr) gestattet.
+
+Interessenten k”nnen m”glicherweise den Quelltext von mir erhalten. Das ist
+nicht ganz kostenlos, aber auch fr Hobbyisten bezahlbar.
+
+Ich mag es nicht, an dieser Stelle zu schreiben: "Sollten Sie das Programm
+l„nger als 3 Wochen (Testzeit) benutzen, so wird eine Registrierungsgebhr
+in H”he von xxxx f„llig." Allerdings freue ich mich ber kleine Spenden
+(5DM und aufw„rts) entweder an meine Postadresse oder auf mein Konto (bitte
+Absender mit angeben). Ein kleiner Denkansto: Es ist nicht so, da ich
+wild drauflos auf immer und ewig fr die Allgemeinheit billig arbeite.
+Ich bin Student und mu nicht nur mein Hobby selbst finanzieren. Je mehr
+ich an kommerziellen Auftragsarbeiten oder sonstigen finanziell
+eintr„glichen Dingen arbeite(n mu), desto weniger Zeit bleibt fr Projekte
+dieser Art.
+
+Die Betatester und ich haben dieses Programm sorgf„ltig berprft. Ich
+hafte in keiner Weise fr:
+- Fehler und/oder (daraus resultierende) Besch„digungen irgendwelcher
+Objekte, Subjekte oder Werte.
+- irgendwelche Auswirkungen des Einsatzes oder Nichteinsatzes dieses
+Programmes und dieser Dokumentation
+
+Fehlermeldungen oder Verbesserungsvorschl„ge nehme ich gern an. Ich hasse
+allerdings unangemeldetes Auftauchen mir nicht pers”nlich bekannter
+Personen sowie Telefonanrufe zu MICH st”renden Zeiten. Es gibt schlielich
+Email und die (gute) alte Post.
+
+Ich bin im Mausnetz unter
+Harun Scheutzow @B
+zu erreichen. Meine Postanschrift lautet:
+Harun Scheutzow
+Dresdener Strae 83
+O-1020 Berlin
+
+Meine Bankverbindung:
+Kontoinhaber: Harun Scheutzow
+Kontonummer:  581854107
+Bankleitzahl: 10010010
+Bank:         Postgiroamt Berlin
+
+An dieser Stelle m”chte ich allen danken, die mich bei der Entwicklung
+dieses Programms untersttzt haben. Diese Untersttzung geht manchmal ganz
+sch”n auf die Telefonrechnung!
+
+
+Einsatzm”glichkeiten, Voraussetzungen, u.v.m.
+------------------------------------------------
+HSMODEM1 soll unter allen TOS-Versionen auf ATARI ST, STE, MegaST, MegaSTE
+und TT laufen. Es l„uft NICHT auf dem Falcon. Deshalb ist alles Folgende
+nur fr die Computer gltig, auf denen HSMODEM1 lauff„hig ist. Je nach
+TOS-Version integriert es sich unterschiedlich in das System. Dabei werden
+nur dokumentierte Eigenschaften des TOS genutzt, obwohl das nicht einfach
+war.
+
+Es l„uft auch mit MinT und sollte vor MinT im Auto-Ordner stehen. Dann
+mte MinT die HSMODEM1-Routinen fr einen blockweisen Datentransfer nutzen
+k”nnen. Ein nachtr„gliches Starten unter MinT funktioniert wohl auch und
+bringt eventuell h”here Datenraten. (Ich arbeite nicht mit MinT.)
+
+HSMODEM1 ist ein Ersatz fr andere Modem1-Patches fr Modem1, wie z.B.
+RS232ENC oder TURBOCTS.
+
+Die Schnittstelle Modem1 kann ohne Zusatzhardware maximal 19200Bd
+erreichen. Daran „ndert auch HSMODEM1 nichts. HSMODEM1 ersetzt aber die
+langsamen und zum Teil fehlerhaften Routinen des TOS durch schnelle und
+hoffentlich fehlerfreie. Mit Zusatzhardware, wie (dem von mir entwickelten)
+RSVE, RSSpeed oder anderen k”nnen h”here Datenraten realisiert werden. Z.B.
+erlaubt RSVE auch die Einstellung von 38400, 57600 und 115200Bd. HSMODEM1
+sorgt dann im Rahmen der Hardware-M”glichkeiten fr einen wesentlich
+h”heren Datendurchsatz (cps-Rate).
+
+Wenn jemand meint, nur mit Software auf Modem1 mehr als 19200Bd zu
+erreichen: Ohne Zusatzhardware k”nnen h”here Datenraten im Synchronbetrieb
+des MFP erreicht werden. Dabei ist eine fehlerfreie Funktion aber
+ausschlielich beim Senden m”glich, und es wird kaum einer auf den Empfang
+verzichten wollen.
+
+Ich arbeite (immer noch) mit einem 8MHz ST, ohne CPU-Beschleuniger. Ich
+halte wenig davon, immer neue und schnellere Computer zu kaufen und diese
+durch lahme Software bis zum Stillstand zu bremsen. Das TOS ist eine lahme
+Software, kein Wunder, es ist inklusive der Interruptroutinen in C
+programmiert (es sieht so aus). Meine pers”nliche Meinung ber die
+TOS-Programmierer (Eric Smith ausgenommen) hat die (Selbst)Zensur an dieser
+Stelle gel”scht.
+
+
+TOS2.05-Fehler
+--------------
+Die XBIOS-Funktion 14, Iorec ist im TOS2.05 fehlerhaft (in 2.06, 3.05 und
+3.06 ist sie definitiv in Ordnung). Sie liefert unabh„ngig von der
+Einstellung ber Bconmap bei der Abfrage der IOREC-Strukturadresse fr AUX
+(Nummer 0) immer die Adresse des Modem1-IOREC. Das fhrte mit frheren
+HSMODEM1.PRGs zu schlechten cps-Raten und anderen Unannehmlickeiten. Jetzt
+beseitigt HSMODEM1 auch dieses Problem, da es bei TOS2.05 die jeweils
+passende IOREC-Adresse selbst liefert.
+
+
+Wie schnell geht es?
+--------------------
+Das Problem bei einer seriellen šbertragung mit einer bestimmten
+Geschwindigkeit (hier in Baud angegeben) ist nicht das Senden der Zeichen,
+sondern deren Empfang. Der MFP puffert nur ein empfangenes Zeichen und
+meldet es der CPU per Interrupt. Die CPU mu dieses Zeichen fr eine
+fehlerfreie šbertragung aus dem MFP abholen, bevor er das n„chste Zeichen
+komplett empfangen hat. Wenn ich sage, der Betrieb bei ... ist zuverl„ssig,
+so bedeutet dies, da die CPU bei der maximal m”glichen
+Empfangs-Zeichendichte (keine Pause zwischen Stoppbit des vorigen und
+Startbit des folgenden Zeichens) jedes Zeichen rechtzeitig abholt.
+
+Ein 8MHz ST (RSVE eingebaut) kann mit TOS und HSMODEM1 eine fehlerfreie
+Datenbertragung mit 38400Bd realisieren. Eine fehlerfreie Datenbertragung
+mit 57600Bd ist ebenfalls m”glich, aber nicht mit dem originalen TOS.
+Andere Interruptroutinen des TOS sind so unintelligent ausgelegt, da sie
+den zuverl„ssigen Betrieb mit 57600Bd verhindern. Auch auf MegaSTEs ist
+57600Bd nicht immer zuverl„ssig. Siehe auch n„chsten Abschnitt.
+
+Derzeit erreicht ein 8MHz ST mit GSZRZ Version 3.3 von Michael Ziegler bei
+einer ZMODEM-šbertragung und 38400Bd mehr als 3600cps, wenn NVDI
+installiert und der Blitter ausgeschaltet ist. Ohne NVDI sind es etwa
+300cps weniger, da GSZRZ lange an seiner Dialogbox zeichnen l„t. Den
+Blitter kann man in den meisten F„llen auch zugeschaltet lassen. Sollten
+aber Empfangsfehler auftreten, dann den Blitter abschalten. ZMODEM-Senden
+bei 57600Bd erreicht mehr als 5000cps.
+
+Die angegebenen Datenraten gelten fr direkte Rechnerkopplung. Fr langsame
+Modems und schlechte Telefonleitungen ist HSMODEM1 nicht verantwortlich!
+Zyxels k”nnen bei 16800zyx/v42bis und ASCII-Texten 3800cps erreichen,
+Zyxel+ bei 19200zyx noch mehr. Andere 14400/v42bis-Modems liegen bei etwa
+3300cps.
+
+
+Das Konfigurationsfile
+----------------------
+Auf Wunsch einiger Nutzer kann HSMODEM1 nun Baudraten umlegen. Dies ist nur
+zusammen mit RSVE oder RS-Speed ntzlich. So kann man die Einschaltung von
+38400Bd, die frher durch Einstellen von 110Bd erfolgte, auf das Einstellen
+von 19200Bd zu legen. Damit erm”glicht man einigen alten Programmen die
+Arbeit mit mehr als 19200Bd.
+
+Das Konfigurationsfile ist ein reiner ASCII-Text, der mit einem Texteditor
+bearbeitet werden kann / mu. Es werden bei Updates m”glicherweise neue
+Parameter hinzukommen und Einschr„nkungen der Syntax aufgehoben.
+
+Das File heit HSMODEM1.INF und wird beim Start des Programms zuerst im
+aktuellen Verzeichnis gesucht. Wenn HSMODEM1.PRG im AUTO-Ordner liegt, wird
+also im Wurzelverzeichnis des Bootlaufwerkes (meist "C:\" oder "A:\")
+gesucht. Ist es dort nicht, wird noch in "\AUTO\" gesucht, also im
+AUTO-Ordner des aktuellen Laufwerkes (sollte das Bootlaufwerk sein). Ohne
+HSMODEM1.INF bleiben die Standardeinstellungen gltig, werden also keine
+Baudraten umgelegt. Wird HSMODEM1.INF gefunden, so erfolgt eine
+entsprechende Meldung.
+
+Die bisher einzige Zeile in HSMODEM1.INF hat folgende Syntax:
+SPEED MODEM1 alte:neue{ alte:neue}{ alte:neue}
+
+Angaben in {} sind optional. Die Groschreibung ist wichtig! Es drfen
+keine Leerzeichen hinzugefgt oder weggelassen werden. Tritt bei der
+Abarbeitung der HSMODEM1.INF ein Fehler auf, wird die Bearbeitung sofort
+abgebrochen. Es sind dann die bis dahin gelesenen Einstellungen gltig, der
+Rest sind die Standardwerte.
+
+alte ist die Baudrate, die zum Einschalten der h”heren Baudrate benutzt
+werden soll. Zul„ssig sind alle TOS-Standardbaudraten, also 19200, 9600,
+4800, 3600, 2400, 2000, 1800, 1200, 600, 300, 200, 150, 134, 110, 75, 50.
+
+neue ist die gewnschte h”here Baudrate, die ebenfalls exakt angegeben
+werden mu. Zul„ssig sind 115200, 57600, 38400.
+
+Folgendes HSMODEM1.INF wrde bei Einsatz eines RSVE oder RS-Speed bei einer
+Einstellung von 19200Bd stattdessen 38400Bd einschalten:
+SPEED MODEM1 19200:38400
+
+
+Zuknftiges
+-----------
+Die TOS-Interruptroutinen sind fr fehlerfreien 57600Bd-Betrieb auf
+8MHz-STs zu doof und langsam. Dies bezieht sich auf das ganze
+Interruptroutinensystem. Ich arbeite an neuen Interruptroutinen, die dieses
+Problem beseitigen werden. Dies sind NICHT neue serielle Routinen (die hier
+enthaltenen sind schnell genug), sondern z.B. neue Tastaturroutinen.
+
+Eine blockorientierte Datenbergabe, kompatibel zu Mint/Multitos, befindet
+sich ebenfalls in der Entwicklung. Damit mten mit einem neuen GSZRZ
+mindestens 5400cps beim Senden UND Empfangen (57000Bd seriell) m”glich
+sein. Empfang natrlich nur, wenn die eben erw„hnten neuen TOS-Interrupts
+fertig sind.
+
+Es geht auch noch ein bichen schneller, aber ich will nur gut getestete
+Versionen ver”ffentlichen.
+
+Eventuell wird es ein Programm geben, da alle Schnittstellen des
+MegaSTE/TT untersttzt, m”glicherweise in Zusammenarbeit mit anderen
+Programmierern.
+
+Es wird wahrscheinlich einen TOS2.06-EPROM-Patch geben, der HSMODEM1 direkt
+in das TOS2.06 integriert.
+
+Intelligente und schnelle (Interrupt)routinen kommen bei einer
+Multitaskumgebung der ganzen Systemleistung zugute, so da nicht
+auszuschlieen ist, da auch mal Tastendrcken, Mausbewegen und 38400Bd
+ZMODEM-šbertragung gleichzeitig fehlerfrei m”glich sind.
+
+
+M”gliche Probleme
+-----------------
+Lange DMA-Zugriffe k”nnen beim Empfang zu Datenverlusten fhren. Ebenfalls
+kritisch sind lange Verweilzeiten der CPU in einem Interruptpriorit„tslevel
+gr”er als 5.
+
+Auf 8MHz STs: Finger weg von Maus und Tastatur, w„hrend GSZRZ empf„ngt.
+Sonst gibt es ein paar šbertragungsfehler.
+
+Abspeichern empfangener Daten unter GSZRZ w„hrend des Empfangs soll laut
+Berichten eines Testers nicht zu Fehlern fhren.
+
+Man kann den Blitter so programmieren, da er die CPU zu lange blockiert.
+Das TOS und NVDI tun dies anscheinend nicht.
+
+Es gibt einige ACCs und residente (AUTO-Ordner-)Programme, die irgendwelche
+Interrupts umlegen und das System zu lange blockieren. Im Zweifelsfalle
+einzeln rauswerfen und testen.
+
+Ein Problemprogramm ist leider DCF_TIME von Ralf Zimmermann @WI2. Der Autor
+kennt das Problem und die L”sung dazu. Ab Version 1.2 (wird bald kommen)
+sollte es behoben sein. Pnktlich zu jeder Minutenkennung ist es zu lange
+in der Interruptroutine (IPL6) und es gibt bei 38400Bd einen Empfangsfehler.
+
+
+Funktion des HSMODEM1 (fr Interessenten)
+-----------------------------------------
+Seine Geschwindigkeit erreicht es durch optimierte Interruptroutinen und
+durch das zus„tzliche direkte Einklinken in den BIOS-Trap. Deshalb sollte
+es m”glichst sp„t im AUTO-Ordner gestartet werden, aber noch vor allen
+Programmen, die Modem1 benutzen. Es mu hinter Programmen stehen, die die
+XBIOS-Funktion Bconmap umlenken oder die Anzahl der per Bconmap verfgbaren
+Kan„le „ndern (gibt es sowas schon?).
+
+Handshake
+HSMODEM1 beherrscht alle drei Arten, die das TOS k”nnen sollte: KEIN
+Handshake, XON/XOFF-Softwarehandshake, RTS/CTS-Hardwarehandshake. Achtung:
+Die Angabe "BEIDES" als Handshakeparameter bei Rsconf wird vom TOS in
+XON/XOFF umgewandelt. Da mir keine sinnvolle Anwendung fr "BEIDES" bekannt
+ist, arbeitet HSMODEM1 ebenso.
+
+BIOS-Trap
+Direktes Einh„ngen ist bei TOS1.00 die einzige M”glichkeit, Bconin,
+Bconstat, Bconout und Bcostat zu ersetzen. Ab TOS1.02 dient es nur der
+Geschwindigkeitssteigerung, denn HSMODEM1 setzt sich auch in die
+entsprechenden xco...-Vektoren ein. Wenn das TOS Bconmap untersttzt (ab
+TOS2.00), so sitzt HSMODEM1 auch in der MAPTAB. Die Originalroutinen fr
+Modem1 werden vollst„ndig ersetzt. Der BIOS-Kanal 6 ist mit HSMODEM1 unter
+allen TOS-Versionen als Modem1 verfgbar. Bei Nutzung von Kanal 1 (AUX)
+wird die Einstellung ber Bconmap beachtet.
+
+XBIOS-Trap
+Fr TOS ohne Bconmap und fr TOS2.05 wird neues Iorec eingeh„ngt. Wenn TOS
+Bconmap untersttzt, wird Bconmap berwacht. Fr TOS ohne Bconmap wird
+Rsconf eingeh„ngt, ansonsten h„ngt das neue Rsconf nur in der MAPTAB. Es
+setzt je nach Handshakeart auch die seriellen Interruptvektoren des MFP.
+
+Das Einh„ngen in den XBIOS- und BIOS-Trap erfolgt per XBRA mit
+der Kennung RSVE.
+
+Die fnf fr die serielle Kommunikation wichtigen Interrupts des MFP werden
+durch neue Routinen ersetzt. Dabei wird fr jede Handshakeart eine
+spezielle Routine benutzt, ein wesentlicher Grund fr die erreichte
+Geschwindigkeit.
+
+
+Praktischer Einsatz
+-------------------
+HSMODEM1 wird in den AUTO-Ordner kopiert. Dabei sollte es m”glichst weit
+hinten stehen, aber vor allen Programmen, die Modem1 nutzen. Bei jedem
+neuen Booten wird es automatisch geladen. Es belegt dann etwa 2KByte im
+RAM. HSMODEM1 kann auch durch Anklicken gestartet werden.
+
+
+Versionen
+---------
+Ich vergebe keine Versionsnummern, sondern berlasse die Unterscheidung dem
+in der Installationsmeldung ausgegebenen Datum. Ich notiere das Datum in
+der deutschen Schreibweise, also Tag.Monat.Jahr.
+
+Neue Versionen sind zuerst in der Maus Berlin, Telefonnummer 030-727056
+(meistens besetzt), zu finden und verbreiten sich schnell ber die M„use.
+Man sollte nach dem Filenamen "HSMODEM*.*" suchen lassen.
+
+16.03.1993
+erste ”ffentliche Version
+
+05.04.1993
+kleiner Fehler in bcostat beseitigt (meldete zu sp„t, da Puffer voll,
+so mute bconout selten doch warten)
+
+11.04.1993
+Initialisierung ge„ndert
+XBIOS Iorec Fehler des TOS2.05 wird korrigiert
+Konfigurationsfileauswertung eingebaut
+Rsconf l”scht seriellen Pufferinhalt nicht mehr
+
+Harun Scheutzow (SWB), 16.03.1993 und sp„ter
