@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name 74x4040)(type Legacy)(uri ${KIPRJMOD}/kicad-symbols-generated/ics/commons/74x4040.lib)(options "")(descr ""))
+  (lib (name gal16v8)(type Legacy)(uri ${KIPRJMOD}/kicad-symbols-generated/ics/commons/gal16v8.lib)(options "")(descr ""))
+)
