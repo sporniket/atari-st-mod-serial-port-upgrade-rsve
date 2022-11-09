@@ -466,4 +466,50 @@ Text Label 6500 1700 2    50   ~ 0
 tua
 Text Label 6500 1500 2    50   ~ 0
 tid
+$Comp
+L Mechanical:MountingHole H1
+U 1 1 636F960F
+P 5500 2750
+F 0 "H1" H 5500 2950 50  0000 C CNN
+F 1 "M2" H 5500 2875 50  0000 C CNN
+F 2 "MountingHole:MountingHole_2.2mm_M2" H 5500 2750 50  0001 C CNN
+F 3 "~" H 5500 2750 50  0001 C CNN
+	1    5500 2750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H2
+U 1 1 636F9BFE
+P 6250 2750
+F 0 "H2" H 6250 2950 50  0000 C CNN
+F 1 "M2" H 6250 2875 50  0000 C CNN
+F 2 "MountingHole:MountingHole_2.2mm_M2" H 6250 2750 50  0001 C CNN
+F 3 "~" H 6250 2750 50  0001 C CNN
+	1    6250 2750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H3
+U 1 1 636FA348
+P 5500 3250
+F 0 "H3" H 5500 3450 50  0000 C CNN
+F 1 "M2" H 5500 3375 50  0000 C CNN
+F 2 "MountingHole:MountingHole_2.2mm_M2" H 5500 3250 50  0001 C CNN
+F 3 "~" H 5500 3250 50  0001 C CNN
+	1    5500 3250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H4
+U 1 1 636FA646
+P 6250 3250
+F 0 "H4" H 6250 3450 50  0000 C CNN
+F 1 "M2" H 6250 3375 50  0000 C CNN
+F 2 "MountingHole:MountingHole_2.2mm_M2" H 6250 3250 50  0001 C CNN
+F 3 "~" H 6250 3250 50  0001 C CNN
+	1    6250 3250
+	1    0    0    -1  
+$EndComp
+Text Notes 5350 2350 0    79   ~ 0
+Mounting holes
 $EndSCHEMATC
