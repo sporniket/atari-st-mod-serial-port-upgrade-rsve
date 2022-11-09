@@ -407,4 +407,63 @@ Wire Wire Line
 	1350 5700 1250 5700
 Wire Wire Line
 	1350 6100 1350 6000
+$Comp
+L Connector_Generic:Conn_02x03_Odd_Even J6
+U 1 1 636DF6D3
+P 6050 1600
+F 0 "J6" H 6100 1800 50  0000 C CNN
+F 1 "IDC connector" H 6100 1400 50  0000 C CNN
+F 2 "Connector_IDC:IDC-Header_2x03_P2.54mm_Horizontal" H 6050 1600 50  0001 C CNN
+F 3 "~" H 6050 1600 50  0001 C CNN
+	1    6050 1600
+	-1   0    0    -1  
+$EndComp
+Text Notes 5400 1250 0    79   ~ 0
+Combined connector
+$Comp
+L power:GND #PWR012
+U 1 1 636DFE0C
+P 5500 1700
+F 0 "#PWR012" H 5500 1450 50  0001 C CNN
+F 1 "GND" H 5500 1550 50  0000 C CNN
+F 2 "" H 5500 1700 50  0001 C CNN
+F 3 "" H 5500 1700 50  0001 C CNN
+	1    5500 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR011
+U 1 1 636E0666
+P 6850 1600
+F 0 "#PWR011" H 6850 1450 50  0001 C CNN
+F 1 "VCC" H 6850 1750 50  0000 C CNN
+F 2 "" H 6850 1600 50  0001 C CNN
+F 3 "" H 6850 1600 50  0001 C CNN
+	1    6850 1600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5650 1500 5650 1600
+Wire Wire Line
+	5650 1700 5500 1700
+Wire Wire Line
+	5650 1500 5750 1500
+Wire Wire Line
+	5650 1600 5750 1600
+Connection ~ 5650 1600
+Wire Wire Line
+	5650 1600 5650 1700
+Wire Wire Line
+	5650 1700 5750 1700
+Connection ~ 5650 1700
+Wire Wire Line
+	6250 1500 6500 1500
+Wire Wire Line
+	6250 1700 6500 1700
+Wire Wire Line
+	6250 1600 6850 1600
+Text Label 6500 1700 2    50   ~ 0
+tua
+Text Label 6500 1500 2    50   ~ 0
+tid
 $EndSCHEMATC
