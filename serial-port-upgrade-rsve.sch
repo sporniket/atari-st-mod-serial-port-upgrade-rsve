@@ -5,8 +5,8 @@ $Descr A4 8268 11693 portrait
 encoding utf-8
 Sheet 1 1
 Title "RSVE, higher baudrates for the serial port of the Atari ST"
-Date "2022-11-08"
-Rev "v0.0.0-draft"
+Date "2022-11-10"
+Rev "v1.0.0"
 Comp "Remake by Sporniket"
 Comment1 ""
 Comment2 ""
@@ -46,25 +46,25 @@ Wire Wire Line
 $Comp
 L Connector_Generic:Conn_01x02 J5
 U 1 1 636C3721
-P 3500 1500
-F 0 "J5" H 3500 1600 50  0000 C CNN
-F 1 "Led" H 3500 1300 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 3500 1500 50  0001 C CNN
-F 3 "~" H 3500 1500 50  0001 C CNN
-	1    3500 1500
+P 5600 1500
+F 0 "J5" H 5600 1600 50  0000 C CNN
+F 1 "Led" H 5600 1300 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 5600 1500 50  0001 C CNN
+F 3 "~" H 5600 1500 50  0001 C CNN
+	1    5600 1500
 	-1   0    0    -1  
 $EndComp
-Text Label 3950 1500 2    50   ~ 0
+Text Label 6050 1500 2    50   ~ 0
 led+
-Text Label 3950 1600 2    50   ~ 0
+Text Label 6050 1600 2    50   ~ 0
 led-
 Wire Wire Line
-	3950 1600 3700 1600
+	6050 1600 5800 1600
 Wire Wire Line
-	3700 1500 3950 1500
-Text Notes 1100 1250 0    79   ~ 0
-Piggy-back connectors
-Text Notes 3300 1250 0    79   ~ 0
+	5800 1500 6050 1500
+Text Notes 1300 1250 0    79   ~ 0
+Individual connectors
+Text Notes 5400 1250 0    79   ~ 0
 LED connector
 $Comp
 L 74x4040:12-STAGE_BINARY_RIPPLE_COUNTER_PHY U2
@@ -410,61 +410,59 @@ Wire Wire Line
 $Comp
 L Connector_Generic:Conn_02x03_Odd_Even J6
 U 1 1 636DF6D3
-P 6050 1600
-F 0 "J6" H 6100 1800 50  0000 C CNN
-F 1 "IDC connector" H 6100 1400 50  0000 C CNN
-F 2 "Connector_IDC:IDC-Header_2x03_P2.54mm_Horizontal" H 6050 1600 50  0001 C CNN
-F 3 "~" H 6050 1600 50  0001 C CNN
-	1    6050 1600
+P 3900 1600
+F 0 "J6" H 3950 1800 50  0000 C CNN
+F 1 "IDC connector" H 3950 1400 50  0000 C CNN
+F 2 "Connector_IDC:IDC-Header_2x03_P2.54mm_Horizontal" H 3900 1600 50  0001 C CNN
+F 3 "~" H 3900 1600 50  0001 C CNN
+	1    3900 1600
 	-1   0    0    -1  
 $EndComp
-Text Notes 5400 1250 0    79   ~ 0
+Text Notes 3250 1250 0    79   ~ 0
 Combined connector
 $Comp
 L power:GND #PWR012
 U 1 1 636DFE0C
-P 5500 1700
-F 0 "#PWR012" H 5500 1450 50  0001 C CNN
-F 1 "GND" H 5500 1550 50  0000 C CNN
-F 2 "" H 5500 1700 50  0001 C CNN
-F 3 "" H 5500 1700 50  0001 C CNN
-	1    5500 1700
+P 3350 1700
+F 0 "#PWR012" H 3350 1450 50  0001 C CNN
+F 1 "GND" H 3350 1550 50  0000 C CNN
+F 2 "" H 3350 1700 50  0001 C CNN
+F 3 "" H 3350 1700 50  0001 C CNN
+	1    3350 1700
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:VCC #PWR011
 U 1 1 636E0666
-P 6850 1600
-F 0 "#PWR011" H 6850 1450 50  0001 C CNN
-F 1 "VCC" H 6850 1750 50  0000 C CNN
-F 2 "" H 6850 1600 50  0001 C CNN
-F 3 "" H 6850 1600 50  0001 C CNN
-	1    6850 1600
+P 4500 1600
+F 0 "#PWR011" H 4500 1450 50  0001 C CNN
+F 1 "VCC" H 4500 1750 50  0000 C CNN
+F 2 "" H 4500 1600 50  0001 C CNN
+F 3 "" H 4500 1600 50  0001 C CNN
+	1    4500 1600
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5650 1500 5650 1600
+	3500 1500 3500 1600
 Wire Wire Line
-	5650 1700 5500 1700
+	3500 1700 3350 1700
 Wire Wire Line
-	5650 1500 5750 1500
+	3500 1500 3600 1500
 Wire Wire Line
-	5650 1600 5750 1600
-Connection ~ 5650 1600
+	3500 1600 3600 1600
+Connection ~ 3500 1600
 Wire Wire Line
-	5650 1600 5650 1700
+	3500 1600 3500 1700
 Wire Wire Line
-	5650 1700 5750 1700
-Connection ~ 5650 1700
+	3500 1700 3600 1700
+Connection ~ 3500 1700
 Wire Wire Line
-	6250 1500 6500 1500
+	4100 1500 4350 1500
 Wire Wire Line
-	6250 1700 6500 1700
-Wire Wire Line
-	6250 1600 6850 1600
-Text Label 6500 1700 2    50   ~ 0
+	4100 1700 4350 1700
+Text Label 4350 1700 2    50   ~ 0
 tua
-Text Label 6500 1500 2    50   ~ 0
+Text Label 4350 1500 2    50   ~ 0
 tid
 $Comp
 L Mechanical:MountingHole H1
@@ -512,4 +510,6 @@ F 3 "~" H 6250 3250 50  0001 C CNN
 $EndComp
 Text Notes 5350 2350 0    79   ~ 0
 Mounting holes
+Wire Wire Line
+	4100 1600 4500 1600
 $EndSCHEMATC
