@@ -11,7 +11,12 @@
 
   (page A4 portrait)
   (title_block
-    (date 2022-11-09)
+    (title "RSVE, higher baudrates for the serial port of the Atari ST")
+    (date 2022-11-10)
+    (rev v1.0.0)
+    (company "Remake by Sporniket")
+    (comment 3 https://github.com/sporniket/atari-st-mod-serial-port-upgrade-rsve)
+    (comment 4 "original repository")
   )
 
   (layers
