@@ -31,7 +31,9 @@ You can copy, modify, distribute and perform the work, even for commercial purpo
 
 ### Release notes
 
-> No releases yet
+#### v1.0
+
+* Initial release (gerbers, schematics). The tests performed in the thread at exxosforums shows that it works.
 
 ## 2. What should you know before using **The RSVE serial port mod for the Atari ST** ?
 
@@ -40,6 +42,10 @@ You can copy, modify, distribute and perform the work, even for commercial purpo
 > Do not use **The RSVE serial port mod for the Atari ST** if this project is not suitable for your project.
 
 ## 3. How to use **The RSVE serial port mod for the Atari ST** ?
+
+### From releases
+
+A release contains the schematics and gerbers files.
 
 ### From sources
 
@@ -57,6 +63,10 @@ See the [project issues](https://github.com/sporniket/atari-st-mod-serial-port-u
 ### The original description of the mod
 
 See the content of [`reference/rsve`](./reference/rsve) folder.
+
+### The installation guide
+
+See [the quick installation guide](./reference/quick-installation-guide/rsve-quick-install-guide.pdf)
 
 ### Report issues
 Use the [project issues](https://github.com/sporniket/atari-st-mod-serial-port-upgrade-rsve/issues) page.
