@@ -14,6 +14,8 @@ Content
 
 **The RSVE serial port mod for the Atari ST** is a remake of the 'RSVE' serial port upgrade for the Atari ST, that allows to use far higher speed than the stock 19.2 kbps of an unmodded computer.
 
+This project started from [this thread at exxosforum](https://exxosforum.co.uk/forum/viewtopic.php?f=29&t=5926) and the latest pages details what has been attempted to make it work with BBS Express (tldr : at the time of writing, it works at 38kbps, but then incoming calls at slower speed does not works).
+
 ![Simulated top overview](./gallery/overview-top.jpg)
 
 ![Simulated bottom overview](./gallery/overview-bottom.jpg)
