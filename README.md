@@ -39,6 +39,11 @@ You can copy, modify, distribute and perform the work, even for commercial purpo
 
 **The RSVE serial port mod for the Atari ST** is made using Kicad 5.
 
+The mod contains a GAL16V8 that has to be programmed. The JED file, along with the source, can be found in the [reference folder](./reference/rsve/) :
+
+* [JED file](./reference/rsve/RSVE_GAL.JED)
+* [Source of the JED](./reference/rsve/RSVE_GAL.TXT)
+
 > Do not use **The RSVE serial port mod for the Atari ST** if this project is not suitable for your project.
 
 ## 3. How to use **The RSVE serial port mod for the Atari ST** ?
